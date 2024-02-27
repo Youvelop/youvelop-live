@@ -1,11 +1,9 @@
 gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
 
-const bulbs_1 = gsap.utils.toArray(".w-bulb");
-const bulbs_2 = gsap.utils.toArray(".w-bulb-2");
+const bulbs_1 = gsap.utils.toArray(".wf-bulb");
 
 // Animating w-bulbs
-let wBulbs = gsap.timeline()
-.to(bulbs_1, { fill: "#f5edcc", duration: 0.5, stagger: 0.65, repeat: -1, ease: "none" });
+gsap.to(bulbs_1, { fill: "#f5edcc", duration: 0.5, stagger: 0.65, repeat: -1, ease: "none" });
 
 //flowing lights in circuit lines
 let flowing = gsap.timeline({ defaults: {ease: "none"}, repeat: -1,
