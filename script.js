@@ -2,6 +2,12 @@ gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
 
 const bulbs_1 = gsap.utils.toArray(".wf-bulb");
 
+// Desktop script
+ let mm = gsap.matchMedia();
+
+ mm.add("(min-width: 768px)", () => {
+
+
 // Animating w-bulbs
 gsap.to(bulbs_1, { fill: "#f5edcc", duration: 0.5, stagger: 0.65, repeat: -1, ease: "none" });
 
@@ -130,6 +136,7 @@ gsap.to("#gsap-track-light", { duration: 3,repeat: -1, ease: "none",
                                     end: 1
                               }      
 }, 0);
-//GSDevTools.create({animation:flowing});
 
-            
+});
+//GSDevTools.create({animation:flowing});
+         
