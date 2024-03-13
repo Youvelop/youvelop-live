@@ -3,6 +3,8 @@
        -moz-box-sizing: content-box;
             box-sizing: content-box;
    }
+
+
 body{
     background-color: #0F0F0F;
     width: 100vw;
@@ -15,7 +17,7 @@ svg{
     top: 0;
 }
 #artflow-main{
-    display: block;
+    display: none;
     margin: auto;
     width: 80%;
     box-sizing: border-box;
@@ -23,3 +25,30 @@ svg{
 .wf-bulb{
     fill: #141414;
 }
+#svg-mobile-hero{
+    display: block;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 479px) {
+    * {
+        -webkit-box-sizing: content-box;
+           -moz-box-sizing: content-box;
+                box-sizing: content-box;
+       }
+    body {
+        background-color: #0F0F0F;
+        width: 100vw;
+        height: auto;
+        top: 0;
+    }
+    #artflow-main{
+        display: none;
+    }
+    #svg-mobile-hero{
+        display: block;
+        margin: auto;
+        box-sizing: border-box;
+    }
+  }
