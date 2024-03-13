@@ -8,6 +8,92 @@ const bulbs_1 = gsap.utils.toArray(".wf-bulb");
  mm.add("(min-width: 768px)", () => {
 
 
+// Mobile flowing tracks
+const webfPin = document.querySelector("#mob-webflow-ellipse");
+const gsapPin = document.querySelector("#gsap-mobile-pin");
+const pin = document.querySelector("#dot");
+// Assume `rectElement` is the SVG <rect> element
+const webPinBB = webfPin.getBBox();
+const x = webPinBB.x;
+const y = webPinBB.y;
+const width = webPinBB.width;
+const height = webPinBB.height;
+
+const centerX = Math.round(x + width / 2).toFixed(2);
+const centerY = Math.round(y + height / 2).toFixed(2);
+
+pin.setAttribute('cx', centerX);
+pin.setAttribute('cy', centerY);
+
+gsap.set(webfPin, { transformOrigin: "50% 50%"});
+
+let rotation = gsap.timeline({ repeat: -1, defaults: { ease: "none"}})
+.to("#gsap-rev", { svgOrigin: `${centerX} ${centerY}`, rotationZ: 360, duration: 20,  ease: "none"})
+.to(gsapPin,{ transformOrigin: "50% 50%", rotationZ: -360, duration: 20, ease: "none"}, 0);
+
+
+let mobFlow = gsap.timeline();
+
+mobFlow.to("#mobFlow-5", { duration: 1.8, ease: "none",
+                            motionPath: {
+                                path: "#left-5",
+                                align: "#left-5",
+                                alignOrigin: [0.5, 0.5],
+                                autoRotate: true,
+                                start: 0,
+                                end: 0.47
+                            }
+                        })
+        .to("#mobFlow-1", { duration: 1.2, ease: "none",
+        motionPath: {
+            path: "#left-1",
+            align: "#left-1",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0,
+            end: 0.5
+        }}, "-=0.6")                
+        .to("#webflow-mobile-pin", {scale: 0.9, ease: "circ.out", duration: 0.3})
+        .to("#webflow-mobile-pin", {delay: 0.1, scale: 1, ease: "elastic.out(1.5, 0.2)", duration: 0.3})
+       .to("#mobFlow-2", {
+        duration: 1.3, ease: "none", 
+        motionPath:{
+            path: "#left-2",
+            align: "#left-2",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0.47,
+            end: 1.01
+        }
+       }, "-=0.4")
+       .to("#mobFlow-4", {
+        duration: 1.3, ease: "none", 
+        motionPath:{
+            path: "#left-4",
+            align: "#left-4",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0.47,
+            end: 1.01
+        }
+       }, "<")
+       .to("#mobFlow-6", {
+        duration: 1.3, ease: "none", 
+        motionPath:{
+            path: "#left-6",
+            align: "#left-6",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0.47,
+            end: 1.01
+        }
+       }, "<");
+
+
+
+
+
+//////////////////////////////////////////////////////
 // Animating w-bulbs
 gsap.to(bulbs_1, { fill: "#f5edcc", duration: 0.5, stagger: 0.65, repeat: -1, ease: "none" });
 
@@ -139,4 +225,12 @@ gsap.to("#gsap-track-light", { duration: 3,repeat: -1, ease: "none",
 
 });
 //GSDevTools.create({animation:flowing});
-         
+
+            
+let mobile = gsap.matchMedia();
+
+mobile.add("(max-width: 479px)", () => {
+
+    console.log("Mobile script active!");
+
+});
