@@ -161,7 +161,6 @@ const svgContainer = document.querySelector('[wf-element="svg-container"]');
 
 svgContainer.innerHTML = svgRichText.textContent;
 
-  console.log(svgContainer.innerHTML);
 const bulbs_1 = gsap.utils.toArray(".wf-bulb");
 
 // Animating w-bulbs
