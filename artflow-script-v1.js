@@ -156,7 +156,7 @@ desktopMedia.add("(min-width: 768px)", () => {
   console.log("Desktop version in Effect!");
 // function play(){
   // Selecting DOM elements
-const svgRichText = document.querySelector('[wf-element="svg-as-rich-text"]');
+const svgRichText = document.querySelector('[wf-element="svg-p-text"]');
 const svgContainer = document.querySelector('[wf-element="svg-container"]'); 
 
 svgContainer.innerHTML = svgRichText.textContent;
