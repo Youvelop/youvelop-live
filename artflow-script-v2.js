@@ -63,14 +63,14 @@ function toggleBotLines() {
   
 mobLights.forEach((element, index) => {
     gsap.set(element, { opacity: 1,
-    motionPath: {
-        path: `#left-${index + 1}`,
-        align: `#left-${index + 1}`,
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-        start: 1, 
-        end: 1
-    }
+                          motionPath: {
+                              path: `#left-${index + 1}`,
+                              align: `#left-${index + 1}`,
+                              alignOrigin: [0.5, 0.5],
+                              autoRotate: true,
+                              start: 1, 
+                              end: 1
+                          }
     });
 });
 
@@ -100,38 +100,35 @@ mobLights.forEach((element, index) => {
       .to("#circ-blur", { r: 58, ease: "power1.inOut", duration:0.5 }, "-=0.65")
       .to(webfUnit, {delay: 0.1, scale: 1, ease: "elastic.out(1, 0.2)", duration: 0.35})
       .to("#circ-blur", { r: 73, ease: "power2.out", duration: 0.1 }, "<0.1")
-      .to(`#mobFlow-${botLines[0]}`, {
-      duration: 1.3, ease: "none", 
-      motionPath:{
-        path: `#left-${botLines[0]}`,
-        align: `#left-${botLines[0]}`,
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-        start: 0.47,
-        end: 1.01
-      }
+      .to(`#mobFlow-${botLines[0]}`, {duration: 1.3, ease: "none", 
+                                        motionPath:{
+                                          path: `#left-${botLines[0]}`,
+                                          align: `#left-${botLines[0]}`,
+                                          alignOrigin: [0.5, 0.5],
+                                          autoRotate: true,
+                                          start: 0.47,
+                                          end: 1.01
+                                        }
     }, "-=0.4")
-      .to(`#mobFlow-${botLines[1]}`, {
-      duration: 1.3, ease: "none", 
-      motionPath:{
-        path: `#left-${botLines[1]}`,
-        align: `#left-${botLines[1]}`,
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-        start: 0.47,
-        end: 1.01
-      }
+      .to(`#mobFlow-${botLines[1]}`, {duration: 1.3, ease: "none", 
+                                          motionPath:{
+                                            path: `#left-${botLines[1]}`,
+                                            align: `#left-${botLines[1]}`,
+                                            alignOrigin: [0.5, 0.5],
+                                            autoRotate: true,
+                                            start: 0.47,
+                                            end: 1.01
+                                          }
     }, "<")
-      .to(`#mobFlow-${botLines[2]}`, {
-      duration: 1.3, ease: "none", 
-      motionPath:{
-        path: `#left-${botLines[2]}`,
-        align: `#left-${botLines[2]}`,
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-        start: 0.47,
-        end: 1.01
-      }
+      .to(`#mobFlow-${botLines[2]}`, {duration: 1.3, ease: "none", 
+                                        motionPath:{
+                                          path: `#left-${botLines[2]}`,
+                                          align: `#left-${botLines[2]}`,
+                                          alignOrigin: [0.5, 0.5],
+                                          autoRotate: true,
+                                          start: 0.47,
+                                          end: 1.01
+                                        }
     }, "<");
 
   }      
@@ -149,20 +146,17 @@ mobLights.forEach((element, index) => {
 playLines();
 });
 
-
 desktopMedia.add("(min-width: 768px)", () => { 
-// function play(){
   // Selecting DOM elements
 const svgRichText = document.querySelector('[wf-element="svg-p-text"]');
 const svgContainer = document.querySelector('[wf-element="svg-container"]'); 
 
 svgContainer.innerHTML = svgRichText.textContent;
-
-
-const bulbs_1 = gsap.utils.toArray(".wf-bulb");
-
+  
 // Animating w-bulbs & gsap track
+const bulbs_1 = gsap.utils.toArray(".wf-bulb");
 gsap.to(bulbs_1, { fill: "#f5edcc", duration: 0.4, stagger: 0.65, repeat: -1, ease: "none" });
+  
 gsap.to("#gsap-track-light", { duration: 2.5,repeat: -1, ease: "none",
                               motionPath: {
                                 path: "#gsap-bulb-track",
